@@ -1,0 +1,162 @@
+{
+    "modelName": "puppetserver_Access",
+    "displayName": "puppetserver Access Events",
+    "description": "",
+    "objectSummary": {
+        "Event-Based": 1,
+        "Transaction-Based": 0,
+        "Search-Based": 0
+    },
+    "objects": [
+        {
+            "objectName": "Root_Event_Object",
+            "displayName": "Root Event Object",
+            "parentName": "BaseEvent",
+            "fields": [
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "remote_host",
+                            "owner": "Root_Event_Object",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Remote Host",
+                            "comment": ""
+                        },
+                        {
+                            "fieldName": "http_response_code",
+                            "owner": "Root_Event_Object",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "HTTP Response Code",
+                            "comment": ""
+                        },
+                        {
+                            "fieldName": "response_length",
+                            "owner": "Root_Event_Object",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Response Length",
+                            "comment": ""
+                        },
+                        {
+                            "fieldName": "remote_ip",
+                            "owner": "Root_Event_Object",
+                            "type": "ipv4",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Remote IP",
+                            "comment": ""
+                        },
+                        {
+                            "fieldName": "local_port",
+                            "owner": "Root_Event_Object",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Local Port",
+                            "comment": ""
+                        },
+                        {
+                            "fieldName": "response_time",
+                            "owner": "Root_Event_Object",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "Response Time",
+                            "comment": ""
+                        }
+                    ],
+                    "inputField": "_raw",
+                    "calculationID": "ozfl50flce4s4i",
+                    "owner": "Root_Event_Object",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Rex",
+                    "expression": "^(?P<remote_host>[^ ]+)(?:[^\\.\\n]*\\.){3}\\d+\"\\s+(?P<http_response_code>\\d+)\\s+(?P<response_length>\\d+)(?:[^ \\n]* ){2}(?P<remote_ip>[^ ]+)\\s+(?P<local_port>[^ ]+)\\s+(?P<response_time>.+)"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "index=puppet-enterprise sourcetype=puppetserver_access",
+                    "owner": "Root_Event_Object"
+                }
+            ],
+            "lineage": "Root_Event_Object"
+        }
+    ],
+    "objectNameList": [
+        "Root_Event_Object"
+    ]
+}

@@ -1,0 +1,302 @@
+{
+    "modelName": "puppetserver_Events",
+    "displayName": "puppetserver Events",
+    "description": "",
+    "objectSummary": {
+        "Event-Based": 3,
+        "Transaction-Based": 0,
+        "Search-Based": 0
+    },
+    "objects": [
+        {
+            "objectName": "Root_Event_Object",
+            "displayName": "Root Event Object",
+            "parentName": "BaseEvent",
+            "fields": [
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "level",
+                            "owner": "Root_Event_Object",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "level",
+                            "comment": ""
+                        }
+                    ],
+                    "inputField": "_raw",
+                    "calculationID": "t1n9auipflz69a4i",
+                    "owner": "Root_Event_Object",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Rex",
+                    "expression": "^[^,\\n]*,\\d+\\s+(?P<level>\\w+)"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "index=puppet-enterprise sourcetype=puppetserver",
+                    "owner": "Root_Event_Object"
+                }
+            ],
+            "lineage": "Root_Event_Object"
+        },
+        {
+            "objectName": "Catalog_Compilations",
+            "displayName": "Catalog Compilations",
+            "parentName": "Root_Event_Object",
+            "fields": [
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "client_host",
+                            "owner": "Root_Event_Object.Catalog_Compilations",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "client_host",
+                            "comment": ""
+                        },
+                        {
+                            "fieldName": "environment",
+                            "owner": "Root_Event_Object.Catalog_Compilations",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "environment",
+                            "comment": ""
+                        },
+                        {
+                            "fieldName": "compile_time",
+                            "owner": "Root_Event_Object.Catalog_Compilations",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "compile_time",
+                            "comment": ""
+                        }
+                    ],
+                    "inputField": "_raw",
+                    "calculationID": "0ibwzapzclmlhaor",
+                    "owner": "Root_Event_Object.Catalog_Compilations",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Rex",
+                    "expression": "^(?:[^ \\n]* ){9}(?P<client_host>[^ ]+)\\s+(\\w+\\s+)+(?P<environment>\\w+) in (?P<compile_time>[^ ]+)"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "Compiled catalog for",
+                    "owner": "Root_Event_Object.Catalog_Compilations"
+                }
+            ],
+            "lineage": "Root_Event_Object.Catalog_Compilations"
+        },
+        {
+            "objectName": "Deprecation_Warnings",
+            "displayName": "Deprecation Warnings",
+            "parentName": "Root_Event_Object",
+            "fields": [
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "scope",
+                            "owner": "Root_Event_Object.Deprecation_Warnings",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "scope",
+                            "comment": ""
+                        }
+                    ],
+                    "inputField": "_raw",
+                    "calculationID": "ziqnntb3g9hn0zfr",
+                    "owner": "Root_Event_Object.Deprecation_Warnings",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Rex",
+                    "expression": "^[^\\(\\n]*\\((?P<scope>[^\\)]+)"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "Scope deprecated",
+                    "owner": "Root_Event_Object.Deprecation_Warnings"
+                }
+            ],
+            "lineage": "Root_Event_Object.Deprecation_Warnings"
+        }
+    ],
+    "objectNameList": [
+        "Root_Event_Object",
+        "Catalog_Compilations",
+        "Deprecation_Warnings"
+    ]
+}
