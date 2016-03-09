@@ -1,0 +1,725 @@
+{
+    "modelName": "puppetdb_Access_Events",
+    "displayName": "puppetdb Access Events",
+    "description": "PuppetDB access logs",
+    "objectSummary": {
+        "Event-Based": 4,
+        "Transaction-Based": 0,
+        "Search-Based": 0
+    },
+    "objects": [
+        {
+            "objectName": "PuppetDB_Access_Event",
+            "displayName": "PuppetDB Access Event",
+            "parentName": "BaseEvent",
+            "fields": [
+                {
+                    "fieldName": "bytes",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "bytes",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "clientip",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "clientip",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "root",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "root",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "status",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "uri",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri_path",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "uri_path",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri_query",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "uri_query",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "useragent",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "useragent",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "certname",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "certname",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "checksum",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "checksum",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "command",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "command",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "version",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "version",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "index=puppet-enterprise sourcetype=puppetdb_access",
+                    "owner": "PuppetDB_Access_Event"
+                }
+            ],
+            "lineage": "PuppetDB_Access_Event"
+        },
+        {
+            "objectName": "puppetdb_Access_Errors",
+            "displayName": "puppetdb Access Errors",
+            "parentName": "PuppetDB_Access_Event",
+            "fields": [
+                {
+                    "fieldName": "bytes",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "bytes",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "clientip",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "clientip",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "root",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "root",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "status",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "uri",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri_path",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "uri_path",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri_query",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "uri_query",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "useragent",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "useragent",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "NOT (status=2* OR status=3*)",
+                    "owner": "PuppetDB_Access_Event.puppetdb_Access_Errors"
+                }
+            ],
+            "lineage": "PuppetDB_Access_Event.puppetdb_Access_Errors"
+        },
+        {
+            "objectName": "puppetdb_Acess_Query",
+            "displayName": "puppetdb Acess Query",
+            "parentName": "PuppetDB_Access_Event",
+            "fields": [
+                {
+                    "fieldName": "bytes",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "bytes",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "clientip",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "clientip",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "root",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "root",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "status",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "uri",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri_path",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "uri_path",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri_query",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": true,
+                    "editable": true,
+                    "displayName": "uri_query",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "useragent",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "useragent",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [
+                {
+                    "outputFields": [
+                        {
+                            "fieldName": "pdb_query",
+                            "owner": "PuppetDB_Access_Event.puppetdb_Acess_Query",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "pdb_query",
+                            "comment": ""
+                        }
+                    ],
+                    "calculationID": "onmzqnzq52",
+                    "owner": "PuppetDB_Access_Event.puppetdb_Acess_Query",
+                    "editable": true,
+                    "comment": "",
+                    "calculationType": "Eval",
+                    "expression": "urldecode(uri_query)"
+                }
+            ],
+            "constraints": [
+                {
+                    "search": "uri_path=/pdb/query*",
+                    "owner": "PuppetDB_Access_Event.puppetdb_Acess_Query"
+                }
+            ],
+            "lineage": "PuppetDB_Access_Event.puppetdb_Acess_Query"
+        },
+        {
+            "objectName": "puppetdb_Access_Command",
+            "displayName": "puppetdb Access Command",
+            "parentName": "PuppetDB_Access_Event",
+            "fields": [
+                {
+                    "fieldName": "bytes",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "bytes",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "clientip",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "clientip",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "root",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "root",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "status",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "number",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "status",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "uri",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri_path",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "uri_path",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "uri_query",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "uri_query",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "useragent",
+                    "owner": "PuppetDB_Access_Event",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "useragent",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "_time",
+                    "owner": "BaseEvent",
+                    "type": "timestamp",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "_time",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "host",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "host",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "source",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "source",
+                    "comment": ""
+                },
+                {
+                    "fieldName": "sourcetype",
+                    "owner": "BaseEvent",
+                    "type": "string",
+                    "fieldSearch": "",
+                    "required": false,
+                    "multivalue": false,
+                    "hidden": false,
+                    "editable": true,
+                    "displayName": "sourcetype",
+                    "comment": ""
+                }
+            ],
+            "calculations": [],
+            "constraints": [
+                {
+                    "search": "uri_path=/pdb/cmd*",
+                    "owner": "PuppetDB_Access_Event.puppetdb_Access_Command"
+                }
+            ],
+            "lineage": "PuppetDB_Access_Event.puppetdb_Access_Command"
+        }
+    ],
+    "objectNameList": [
+        "PuppetDB_Access_Event",
+        "puppetdb_Access_Errors",
+        "puppetdb_Acess_Query",
+        "puppetdb_Access_Command"
+    ]
+}
