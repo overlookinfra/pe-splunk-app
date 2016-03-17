@@ -12,9 +12,9 @@
   <row>
     <panel>
       <chart>
-        <title>Compilation Metrics by Host</title>
+        <title>Compilation Metrics by Agent Host</title>
         <search>
-          <query>| pivot puppetserver_Events Catalog_Compilations count(Catalog_Compilations) AS "Catalog Compilation Events" avg(compile_time) AS "Average Compilation Time (seconds)" SPLITROW client_host AS "Agent Host" TOP 50000 count(Catalog_Compilations) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
+          <query>| pivot puppetserver_Events Catalog_Compilations count(Catalog_Compilations) AS "Catalog Compilation Events" median(compile_time) AS "Median Compilation Time (seconds)" SPLITROW client_host AS "Agent Host" TOP 50000 count(Catalog_Compilations) ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
           <earliest>$time_range_tok.earliest$</earliest>
           <latest>$time_range_tok.latest$</latest>
         </search>
@@ -77,6 +77,7 @@
         <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
         <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
         <option name="charting.legend.placement">bottom</option>
+        <option name="charting.axisTitleX.text">Time</option>
       </chart>
     </panel>
   </row>
@@ -125,6 +126,43 @@
         <option name="drilldown">cell</option>
         <option name="count">10</option>
       </table>
+    </panel>
+  </row>
+  <row>
+    <panel>
+      <chart>
+        <title>Median Compile Time By Compiler</title>
+        <search>
+          <query>| pivot puppetserver_Events Catalog_Compilations median(compile_time) AS "Median of compile_time" SPLITROW _time AS _time PERIOD auto SPLITCOL host SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1</query>
+          <earliest>$time_range_tok.earliest$</earliest>
+          <latest>$time_range_tok.latest$</latest>
+        </search>
+        <option name="charting.axisY2.enabled">0</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.overflowMode">ellipsisNone</option>
+        <option name="charting.axisLabelsX.majorLabelStyle.rotation">-45</option>
+        <option name="charting.axisTitleX.visibility">visible</option>
+        <option name="charting.axisTitleY.text">Median of compile_time</option>
+        <option name="charting.axisTitleY.visibility">visible</option>
+        <option name="charting.axisTitleY2.visibility">visible</option>
+        <option name="charting.axisX.scale">linear</option>
+        <option name="charting.axisY.scale">linear</option>
+        <option name="charting.axisY2.scale">inherit</option>
+        <option name="charting.chart">line</option>
+        <option name="charting.chart.bubbleMaximumSize">50</option>
+        <option name="charting.chart.bubbleMinimumSize">10</option>
+        <option name="charting.chart.bubbleSizeBy">area</option>
+        <option name="charting.chart.nullValueMode">gaps</option>
+        <option name="charting.chart.showDataLabels">none</option>
+        <option name="charting.chart.sliceCollapsingThreshold">0.01</option>
+        <option name="charting.chart.stackMode">default</option>
+        <option name="charting.chart.style">shiny</option>
+        <option name="charting.drilldown">all</option>
+        <option name="charting.layout.splitSeries">0</option>
+        <option name="charting.layout.splitSeries.allowIndependentYRanges">0</option>
+        <option name="charting.legend.labelStyle.overflowMode">ellipsisMiddle</option>
+        <option name="charting.legend.placement">right</option>
+        <option name="charting.axisTitleX.text">Time</option>
+      </chart>
     </panel>
   </row>
 </form>

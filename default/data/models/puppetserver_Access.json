@@ -80,7 +80,7 @@
                         {
                             "fieldName": "http_response_code",
                             "owner": "Root_Event_Object",
-                            "type": "number",
+                            "type": "string",
                             "fieldSearch": "",
                             "required": false,
                             "multivalue": false,
@@ -102,30 +102,6 @@
                             "comment": ""
                         },
                         {
-                            "fieldName": "remote_ip",
-                            "owner": "Root_Event_Object",
-                            "type": "ipv4",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "Remote IP",
-                            "comment": ""
-                        },
-                        {
-                            "fieldName": "local_port",
-                            "owner": "Root_Event_Object",
-                            "type": "number",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "Local Port",
-                            "comment": ""
-                        },
-                        {
                             "fieldName": "response_time",
                             "owner": "Root_Event_Object",
                             "type": "number",
@@ -136,6 +112,18 @@
                             "editable": true,
                             "displayName": "Response Time",
                             "comment": ""
+                        },
+                        {
+                            "fieldName": "query",
+                            "owner": "Root_Event_Object",
+                            "type": "string",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "query",
+                            "comment": ""
                         }
                     ],
                     "inputField": "_raw",
@@ -144,7 +132,7 @@
                     "editable": true,
                     "comment": "",
                     "calculationType": "Rex",
-                    "expression": "^(?P<remote_host>[^ ]+)(?:[^\\.\\n]*\\.){3}\\d+\"\\s+(?P<http_response_code>\\d+)\\s+(?P<response_length>\\d+)(?:[^ \\n]* ){2}(?P<remote_ip>[^ ]+)\\s+(?P<local_port>[^ ]+)\\s+(?P<response_time>.+)"
+                    "expression": "^(?P<remote_host>[^ ]+)[^\\]\\n]*\\]\\s+(?P<query>\".*\")\\s+(?P<http_response_code>\\d+)\\s+(?P<response_length>[^ ]+)\\s+(\".*\")\\s+(\".*)\\s+(?P<response_time>\\d+)"
                 }
             ],
             "constraints": [

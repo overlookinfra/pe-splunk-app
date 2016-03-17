@@ -153,6 +153,18 @@
                 {
                     "outputFields": [
                         {
+                            "fieldName": "compile_time",
+                            "owner": "Root_Event_Object.Catalog_Compilations",
+                            "type": "number",
+                            "fieldSearch": "",
+                            "required": false,
+                            "multivalue": false,
+                            "hidden": false,
+                            "editable": true,
+                            "displayName": "compile_time",
+                            "comment": ""
+                        },
+                        {
                             "fieldName": "client_host",
                             "owner": "Root_Event_Object.Catalog_Compilations",
                             "type": "string",
@@ -175,18 +187,6 @@
                             "editable": true,
                             "displayName": "environment",
                             "comment": ""
-                        },
-                        {
-                            "fieldName": "compile_time",
-                            "owner": "Root_Event_Object.Catalog_Compilations",
-                            "type": "number",
-                            "fieldSearch": "",
-                            "required": false,
-                            "multivalue": false,
-                            "hidden": false,
-                            "editable": true,
-                            "displayName": "compile_time",
-                            "comment": ""
                         }
                     ],
                     "inputField": "_raw",
@@ -195,7 +195,7 @@
                     "editable": true,
                     "comment": "",
                     "calculationType": "Rex",
-                    "expression": "^(?:[^ \\n]* ){9}(?P<client_host>[^ ]+)\\s+(\\w+\\s+)+(?P<environment>\\w+) in (?P<compile_time>[^ ]+)"
+                    "expression": "^.*for\\s(?P<client_host>.*)\\sin\\senvironment\\s(?P<environment>\\w+)\\sin\\s(?P<compile_time>[\\d\\.]+)"
                 }
             ],
             "constraints": [
