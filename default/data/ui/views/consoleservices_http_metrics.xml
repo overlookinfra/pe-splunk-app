@@ -103,8 +103,8 @@
         <title>Authenticated RBAC users</title>
         <search>
           <query>| pivot consoleservices_Events consoleservices_RBAC_Events count(consoleservices_RBAC_Events) AS "Number of logins" SPLITROW user AS "Authenticated Users" SPLITROW host AS "Console Host" SORT 100 user ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
-          <earliest>-24h@h</earliest>
-          <latest>now</latest>
+          <earliest>$field1.earliest$</earliest>
+          <latest>$field1.latest$</latest>
         </search>
         <option name="wrap">true</option>
         <option name="rowNumbers">false</option>
