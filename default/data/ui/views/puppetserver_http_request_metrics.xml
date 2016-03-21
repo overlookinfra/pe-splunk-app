@@ -14,7 +14,7 @@
       <chart>
         <title>Median Request Response Time</title>
         <search>
-          <query>| pivot puppetserver_Access Root_Event_Object median(response_time) AS "Median of Response Time" SPLITROW _time AS _time SPLITCOL host SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1</query>
+          <query>| pivot puppetserver_Access Root_Event_Object median(response_time) AS "Median of Response Time(ms)" SPLITROW _time AS _time SPLITCOL host SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 100 SHOWOTHER 1</query>
           <earliest>$time_range_tok.earliest$</earliest>
           <latest>$time_range_tok.latest$</latest>
         </search>
@@ -87,7 +87,7 @@
       <table>
         <title>Count Of HTTP Requests And Median Response Time By Host For Time Range</title>
         <search>
-          <query>| pivot puppetserver_Access Root_Event_Object count(Root_Event_Object) AS "Count of Root Event Object" median(response_time) AS "Median of Response Time" SPLITROW host AS host SORT 100 host ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
+          <query>| pivot puppetserver_Access Root_Event_Object count(Root_Event_Object) AS "Count of Root Event Object" median(response_time) AS "Median of Response Time(ms)" SPLITROW host AS host SORT 100 host ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
           <earliest>$time_range_tok.earliest$</earliest>
           <latest>$time_range_tok.latest$</latest>
         </search>
