@@ -4,6 +4,9 @@
 
 This is the official Splunk App for Puppet Enterprise. It currently displays a high level overview of activity relating to the various PE components. With this app users can gain some insight into the performance of their PE console services, puppetdb, and puppetserver instances. At the moment it is simply a collection of dashboards, data models, and the appropriate input configurations. Future releases will expand to ingest data from PuppetDB and the various component metrics endpoints.
 
+![Console Services Overview Dashboard](screenshot.png)
+
+
 ### What this app affects
 
 - Creates a new index called "puppet-enterprise" which the app uses for all its data.
