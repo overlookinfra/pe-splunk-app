@@ -15,7 +15,7 @@
       <chart>
         <title>Average HTTP response times for Console Services</title>
         <search>
-          <query>| pivot consoleservices_Access_Events consoleservices_Access_Event avg(response_time) AS "Average of response_time" SPLITROW _time AS _time PERIOD auto SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
+          <query>| pivot consoleservices_Access_Events consoleservices_Access_Event avg(response_time) AS "Average of response_time(ms)" SPLITROW _time AS _time PERIOD auto SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
@@ -50,7 +50,7 @@
       <chart>
         <title>Request size and response time comparison</title>
         <search>
-          <query>| pivot consoleservices_Access_Events consoleservices_Access_Event max(bytes) AS "Max of bytes" max(response_time) AS "Max of response_time" SPLITROW _time AS _time PERIOD auto SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
+          <query>| pivot consoleservices_Access_Events consoleservices_Access_Event max(bytes) AS "Max of bytes" max(response_time) AS "Max of response_time(ms)" SPLITROW _time AS _time PERIOD auto SORT 100 _time ROWSUMMARY 0 COLSUMMARY 0 NUMCOLS 0 SHOWOTHER 1</query>
           <earliest>$field1.earliest$</earliest>
           <latest>$field1.latest$</latest>
         </search>
